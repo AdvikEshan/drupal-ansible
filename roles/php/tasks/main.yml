@@ -1,0 +1,19 @@
+---
+
+- name: Install PHP and associated packages
+  apt: name=php state=latest
+
+- name: Install PHP GD library
+  apt: name=php-gd state=latest
+  notify:
+    - Restart Apache
+
+- name: Installing mbstring module
+  apt: name=php-mbstring state=latest
+  notify:
+    - Restart Apache
+
+- name: Installing php xml
+  apt: name=php7.2-xml state=latest
+  notify:
+    - Restart Apache
